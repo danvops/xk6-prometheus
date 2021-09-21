@@ -122,9 +122,6 @@ func (a *PrometheusAdapter) tagsToLabelValues(labelNames []string, sampleTags *s
 		labelValues = append(labelValues, tags[label])
 		delete(tags, label)
 	}
-	if len(tags) > 0 {
-		a.logger.WithField("unused_tags", tags).Warn("Not all tags used as labels")
-	}
 	return labelValues
 }
 
